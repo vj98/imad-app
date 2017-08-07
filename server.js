@@ -5,20 +5,46 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles = {
+    'articleone' :  {
+        title: "Article one | Vijay Bhati",
+        heading: "Article one",
+        date: "7 Aug 2017",
+        content: `
+            <p>
+                This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
+            </p>
+            <p>
+                This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
+            </p>
+            <p>
+                This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
+            </p> `
+    }
+    
+    'articletwo' :  {
+        title: "Article two | Vijay Bhati",
+        heading: "Article two",
+        date: "7 Aug 2017",
+        content:
+            <p>
+                This is the content for my second article.
+            </p> 
+    }
+    
+    'articlethree' :  {
+        title: "Article two | Vijay Bhati",
+        heading: "Article three",
+        date: "7 Aug 2017",
+        content: `
+            <p>
+                This is the content for my third article.
+            </p> `
+    }
+};
+
 var articleone = {
-    title: "Article one | Vijay Bhati",
-    heading: "Article one",
-    date: "7 Aug 2017",
-    content: `
-        <p>
-            This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
-        </p>
-        <p>
-            This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
-        </p>
-        <p>
-            This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.  This is the content for my first article.
-        </p> `
+    
 };
 
 function createtemplate(data) {
