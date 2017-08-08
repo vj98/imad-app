@@ -18,3 +18,6 @@ img.onclick = function() {
     img.style.marginleft = '100px';
 };
 
+img.onclick = function () {
+    var internal = setInterval(moveRight, 50);
+}
