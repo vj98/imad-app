@@ -1,23 +1,24 @@
-console.log('Loaded!');
+//Counter Code
+var button = document.getElementById('counter');
+var counter = 0;
 
-//Changing text of the main-text div
-var element = document.getElementById('main-text');
-
-element.innerHTML = 'New Value';
-
-//Have the image
-var img = document.getElementById('madi');
-
-var marginleft = 0;
-function moveRight () {
-    marginleft = marginleft + 10;
-    img.style.marginleft = marginleft + 'px';
-}
-
-img.onclick = function() {
-    img.style.marginleft = '100px';
+button.onclick = function() {
+  
+  //Create a request object
+  var request = new XMLhttpRequest();
+  
+  //Capture response and store it in a variable
+  request.onreadystatechange = function() {
+      if (request.readystate === XMLHttpRequest.DONE) {
+          if (request.status === 200) {
+              var counter  = request.responsseText;
+              var span = document.getElementById('count');
+              span.innerHTML = counter.toString();
+          }
+      }
+  }
+  
+  //Make the request
+  request.open('GET', 'http://bhativijay17.imad.hasura-app.io/counter', true);
+  request.send(null);
 };
-
-img.onclick = function () {
-    var internal = setInterval(moveRight, 50);
-}
