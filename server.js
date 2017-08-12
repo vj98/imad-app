@@ -1,15 +1,27 @@
-//Counter Code
-var button = document.getElementById('counter');
-var counter = 0;
+ar express = require('express');
+var morgan = require('morgan');
+var path = require('path');
 
-button.onclick = function() {
-  
-  //Make a repeat to the counter endpoint
-  
-  //Capture response and store it in a variable
-  
-  //Render the variable in correct span
-  counter = counter + 1;
-  var span = document.getElementById('count');
-  span.innerHTML = counter.toString();
-};
+var app = express();
+app.use(morgan('combined'));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
+
+var port = 80;
+app.listen(port, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
+});
