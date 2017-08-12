@@ -28,7 +28,7 @@ app.get('/submit-name/:name', function(req, res) {
     res.send(JSON.stringify(names));
 });
 
-var port = 8080;
+var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
