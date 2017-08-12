@@ -25,10 +25,10 @@ var name[];
 app.get('/submit-name/:name', function(req, res) {
     var name = req.params.name;
     names.push(name);
-    res.send(JSON.stringify())
-}
+    res.send(JSON.stringify(names));
+});
 
-var port = 80;
+var port = 8080;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
