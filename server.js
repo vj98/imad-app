@@ -28,7 +28,7 @@ app.get('/test-db', function(req, res) {
        } else {
            res.send(JSON.stringify(result));
        }
-   }
+   });
 });
 
 app.get('/ui/style.css', function (req, res) {
