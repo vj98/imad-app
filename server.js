@@ -41,10 +41,14 @@ app.get('/ui/madi.png', function (req, res) {
 
 function hash(input, salt) {
     // How do we create hash
-    var hashed = crypto.pbkdf25ymc(input, salt, 10000, 512, 'sha512');
+    var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return hashed.toString('hex');
 }
 
+app.get('/hash/:input', function(req, res) {
+    var hashedstring = hash(req.params.input, 'this_is _some_random_string');
+    res.send(hashedstring);
+}
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
